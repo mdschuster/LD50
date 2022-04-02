@@ -19,7 +19,11 @@ public class MouseManager : MonoBehaviour
         Vector2 mousePos = GameManager.Instance().mainCamera.ScreenToWorldPoint(Input.mousePosition);
         Vector2 vec = Utility.getNormVectorFromCenter(mousePos);
         innerGizmo.transform.position = vec*WorldManager.Instance().radius;
+        innerGizmo.transform.rotation = Utility.getQuaternionAlignment(vec);
+
+
         outerGizmo.transform.position = vec * WorldManager.Instance().outerRadius;
+
 
     }
 }

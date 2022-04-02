@@ -16,4 +16,8 @@ public static class Utility
         return position - center;
 
     }
+
+    public static Quaternion getQuaternionAlignment(Vector2 vecToAlign) {
+        return Quaternion.LookRotation(Vector3.forward, vecToAlign);
+    }
 }
