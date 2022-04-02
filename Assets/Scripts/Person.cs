@@ -41,7 +41,7 @@ public class Person : MonoBehaviour
         if (time >= 2f) {
             float rand = Random.Range(0f, 1f);
             if (rand <= citySpawnProbability) {
-                Collider2D[] colliders = Physics2D.OverlapCircleAll(this.transform.position, 0.1f, cityMask);
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(this.transform.position, 0.2f, cityMask);
                 if (colliders.Length == 0) {
                     //spawn city
                     GameManager.Instance().spawnManager.spawnCity(this.transform.position);

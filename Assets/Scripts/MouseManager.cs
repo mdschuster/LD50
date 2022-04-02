@@ -10,22 +10,30 @@ public class MouseManager : MonoBehaviour
     [Header("Mouse Weapons")]
     public GameObject rest;
     public GameObject lightning;
+    public float lightningCooldown;
+    private float lTime;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        lTime = lightningCooldown;
         //lightning.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetMouseButtonDown(0)) {
+        lTime -= Time.deltaTime;
+        if (Input.GetMouseButtonDown(0) && lTime<=0f) {
+            
             Vector2 mousePos = GameManager.Instance().mainCamera.ScreenToWorldPoint(Input.mousePosition);
             Vector2 vec = Utility.getNormVectorFromCenter(mousePos)*WorldManager.Instance().radius;
             GameObject go = Instantiate(lightning, vec, Utility.getQuaternionAlignment(vec));
+
+            lTime = lightningCooldown;
+            //TODO need to add graphics to show cooldown
+
             //lightning.transform.position = vec;
             //lightning.transform.rotation = Utility.getQuaternionAlignment(vec);
         }

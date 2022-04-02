@@ -71,7 +71,6 @@ public class SpawnManager : MonoBehaviour
         Collider2D[] results=Physics2D.OverlapCircleAll(go.transform.position, 1, treeLayer);
         foreach (Collider2D c in results) {
             Tree t = c.gameObject.GetComponent<Tree>();
-            spawnedTrees.Remove(t.gameObject);
             t.destroyTree();
         }
 
@@ -92,14 +91,13 @@ public class SpawnManager : MonoBehaviour
         Collider2D[] results = Physics2D.OverlapCircleAll(go.transform.position, 1, treeLayer);
         foreach (Collider2D c in results) {
             Tree t = c.gameObject.GetComponent<Tree>();
-            spawnedTrees.Remove(t.gameObject);
             t.destroyTree();
         }
 
     }
 
     public void spawnTrees() {
-        int randIndex = Random.Range(0, cities.Length);
+        int randIndex = Random.Range(0, trees.Length);
         Vector2 position = Utility.getRandomPosOnCircle();
         Quaternion rotation = Utility.getQuaternionAlignment(position);
 
@@ -144,6 +142,17 @@ public class SpawnManager : MonoBehaviour
     public GameObject instantiateOnCircle(GameObject prefab,Vector2 position, Quaternion rotation) {
         return Instantiate(prefab, Utility.getNormVectorFromCenter(position) * WorldManager.Instance().radius, rotation);
 
+    }
+
+    public List<GameObject> getPeopleList() {
+        return spawnedTrees;
+    }
+
+    public List<GameObject> getCityList() {
+        return spawnedCities;
+    }
+    public List<GameObject> getTreeList() {
+        return spawnedTrees;
     }
 
 }

@@ -6,14 +6,19 @@ public class Lightning : MonoBehaviour
 {
     public float duration;
     public float damageRadius;
-    public LayerMask peopleMask;
+    public LayerMask Mask;
     private float time;
 
     private void OnEnable() {
         time = 0f;
         //overlap cast
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(this.transform.position,damageRadius,peopleMask);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(this.transform.position,damageRadius,Mask);
         foreach(Collider2D collider in colliders) {
+            if (collider.tag == "Tree") {
+                collider.gameObject.GetComponent<Tree>().destroyTree();
+            } else {
+                GameManager.Instance().spawnManager.getPeopleList().Remove(collider.gameObject);
+            }
             Destroy(collider.gameObject);
         }
     }

@@ -99,6 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0.1
   damageRadius: 1
-  peopleMask:
+  Mask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 320

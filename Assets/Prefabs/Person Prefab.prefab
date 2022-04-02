@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3220161455500593100}
   m_Layer: 8
   m_Name: Person Prefab
-  m_TagString: Untagged
+  m_TagString: Person
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   citySpawnProbability: 0.1
   cityMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!50 &-4157948740282616564
 Rigidbody2D:
   serializedVersion: 4
