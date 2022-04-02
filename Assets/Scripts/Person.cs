@@ -9,6 +9,11 @@ public class Person : MonoBehaviour
     public float minSpeed;
     public float directionChangeProbability;
 
+    [Header("City Creation Properties")]
+    public float citySpawnProbability;
+    public LayerMask cityMask;
+    private float time;
+
     private int moveDirection; //positive=clockwise, negative=counterclockwise
     private Rigidbody2D rb;
     private Vector2 position;
@@ -25,19 +30,28 @@ public class Person : MonoBehaviour
             moveDirection = -1;
         }
         //send initial speed
-        speed=Random.Range(minSpeed,maxSpeed);
+        speed = Random.Range(minSpeed, maxSpeed);
 
-        
+
 
     }
 
-    public void setupRandomAngle() {
-        currentAngle = Random.Range(0f, 360f);
+    private void Update() {
+        time += Time.deltaTime;
+        if (time >= 2f) {
+            float rand = Random.Range(0f, 1f);
+            if (rand <= citySpawnProbability) {
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(this.transform.position, 0.1f, cityMask);
+                if (colliders.Length == 0) {
+                    //spawn city
+                    GameManager.Instance().spawnManager.spawnCity(this.transform.position);
+                }
+            }
+
+            time = 0f;
+        }
     }
 
-    public void setupAngle(float angle) {
-        currentAngle = angle;
-    }
 
     private void FixedUpdate() {
         wander();
@@ -46,6 +60,17 @@ public class Person : MonoBehaviour
         Vector2 pos = Utility.getNormVectorFromCenter(Utility.getPositionOnCircle(currentAngle)) * WorldManager.Instance().radius;
         rb.MovePosition(pos);
         this.transform.rotation = Utility.getQuaternionAlignment(rb.position);
+    }
+
+
+
+
+    public void setupRandomAngle() {
+        currentAngle = Random.Range(0f, 360f);
+    }
+
+    public void setupAngle(float angle) {
+        currentAngle = angle;
     }
 
     private void wander() {

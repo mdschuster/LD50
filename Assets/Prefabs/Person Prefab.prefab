@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 187587580280002454}
   - component: {fileID: 8509682254990357973}
   - component: {fileID: -4157948740282616564}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Person Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,6 +102,10 @@ MonoBehaviour:
   maxSpeed: 3
   minSpeed: 7
   directionChangeProbability: 0.005
+  citySpawnProbability: 0.1
+  cityMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!50 &-4157948740282616564
 Rigidbody2D:
   serializedVersion: 4

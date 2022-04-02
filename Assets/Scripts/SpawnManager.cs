@@ -81,7 +81,9 @@ public class SpawnManager : MonoBehaviour
 
     public void spawnCity(Vector2 position) {
         int randIndex = Random.Range(0, cities.Length);
+        //position = Utility.getNormVectorFromCenter(position)*WorldManager.Instance().radius;
         Quaternion rotation = Utility.getQuaternionAlignment(position);
+
 
         GameObject go = instantiateOnCircle(cityPrefab, position, rotation);
         go.GetComponent<SpriteRenderer>().sprite = cities[randIndex];
