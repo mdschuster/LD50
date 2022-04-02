@@ -7,13 +7,14 @@ public class City : MonoBehaviour
 
     public float probToCreatePerson; //every second
     private float time;
+    private float cityAngle;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        time = 0f;
     }
 
     // Update is called once per frame

@@ -27,14 +27,22 @@ public class Person : MonoBehaviour
         //send initial speed
         speed=Random.Range(minSpeed,maxSpeed);
 
-        currentAngle = Random.Range(0f, 360f);
+        
 
+    }
+
+    public void setupRandomAngle() {
+        currentAngle = Random.Range(0f, 360f);
+    }
+
+    public void setupAngle(float angle) {
+        currentAngle = angle;
     }
 
     private void FixedUpdate() {
         wander();
         currentAngle += moveDirection * speed * Time.deltaTime;
-        
+
         Vector2 pos = Utility.getNormVectorFromCenter(Utility.getPositionOnCircle(currentAngle)) * WorldManager.Instance().radius;
         rb.MovePosition(pos);
         this.transform.rotation = Utility.getQuaternionAlignment(rb.position);

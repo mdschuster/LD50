@@ -116,6 +116,18 @@ public class SpawnManager : MonoBehaviour
 
         GameObject go = instantiateOnCircle(personPrefab,position, rotation);
         go.GetComponent<SpriteRenderer>().sprite = people[randIndex];
+        go.GetComponent<Person>().setupRandomAngle();
+        spawnedPeople.Add(go);
+    }
+
+    public void spawnPerson(float angle) {
+        int randIndex = Random.Range(0, people.Length);
+        Vector2 position = Utility.getPositionOnCircle(angle);
+        Quaternion rotation = Utility.getQuaternionAlignment(position);
+
+        GameObject go = instantiateOnCircle(personPrefab, position, rotation);
+        go.GetComponent<SpriteRenderer>().sprite = people[randIndex];
+        go.GetComponent<Person>().setupAngle(angle);
         spawnedPeople.Add(go);
     }
 
@@ -125,6 +137,7 @@ public class SpawnManager : MonoBehaviour
 
         GameObject go = instantiateOnCircle(personPrefab, position, rotation);
         go.GetComponent<SpriteRenderer>().sprite = people[randIndex];
+        go.GetComponent<Person>().setupAngle(Utility.getAngleFromVector(position));
         spawnedPeople.Add(go);
     }
 

@@ -23,15 +23,23 @@ public static class Utility
 
     public static Vector2 getRandomPosOnCircle() {
         float randFloat = Random.Range(0f, 2 * Mathf.PI);
-        float x = Mathf.Sin(randFloat);
-        float y = Mathf.Cos(randFloat);
+        float y = Mathf.Sin(randFloat);
+        float x = Mathf.Cos(randFloat);
         return new Vector2(x, y);
     }
 
     public static Vector2 getPositionOnCircle(float angleDeg) {
         angleDeg *= Mathf.Deg2Rad;
-        float x = Mathf.Sin(angleDeg);
-        float y = Mathf.Cos(angleDeg);
+        float y = Mathf.Sin(angleDeg);
+        float x = Mathf.Cos(angleDeg);
         return new Vector2(x, y);
+    }
+
+    public static float getAngleFromVector(Vector2 position) {
+        float angle= Mathf.Atan2(position.y,position.x)*Mathf.Rad2Deg;
+        if (angle < 0) {
+            angle += 360;
+        }
+        return angle;
     }
 }

@@ -586,8 +586,8 @@ MonoBehaviour:
   mainCamera: {fileID: 1817065832}
   spawnManager: {fileID: 1680867124}
   initialTrees: 50
-  initialPeople: 10
-  initialCities: 4
+  initialPeople: 0
+  initialCities: 1
 --- !u!1 &1608966779
 GameObject:
   m_ObjectHideFlags: 0

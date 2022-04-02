@@ -20,6 +20,7 @@ public class MouseManager : MonoBehaviour
         Vector2 vec = Utility.getNormVectorFromCenter(mousePos);
         innerGizmo.transform.position = vec*WorldManager.Instance().radius;
         innerGizmo.transform.rotation = Utility.getQuaternionAlignment(vec);
+        //print(Utility.getAngleFromVector(new Vector2(mousePos.x,mousePos.y)));
 
 
         outerGizmo.transform.position = vec * WorldManager.Instance().outerRadius;
