@@ -584,6 +584,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1817065832}
+  spawnManager: {fileID: 1680867124}
+  initialTrees: 50
 --- !u!1 &1608966779
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,6 +646,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03fc87d79f193e44d8a93df3db32fc86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cityPrefab: {fileID: 8509908611246641683, guid: 78b7523655bc47f47b22ae24253022d9,
+    type: 3}
+  cities:
+  - {fileID: 142107037, guid: 7d2cbb6639b09e1488d33e573a25149a, type: 3}
+  - {fileID: 1265537970, guid: 7d2cbb6639b09e1488d33e573a25149a, type: 3}
+  - {fileID: -1326087812, guid: 7d2cbb6639b09e1488d33e573a25149a, type: 3}
+  - {fileID: 1440418700, guid: 7d2cbb6639b09e1488d33e573a25149a, type: 3}
+  treePrefab: {fileID: 6649971584334003786, guid: 06ef60825134c674f92cd9dcab40a75d,
+    type: 3}
+  trees:
+  - {fileID: -1174107349, guid: ddfffd72d70de804399f1e2346b607dc, type: 3}
+  - {fileID: -1703764418, guid: ddfffd72d70de804399f1e2346b607dc, type: 3}
+  - {fileID: -1624371973, guid: ddfffd72d70de804399f1e2346b607dc, type: 3}
+  - {fileID: 1828221209, guid: ddfffd72d70de804399f1e2346b607dc, type: 3}
+  - {fileID: -1280537474, guid: ddfffd72d70de804399f1e2346b607dc, type: 3}
+  - {fileID: -782245239, guid: ddfffd72d70de804399f1e2346b607dc, type: 3}
+  peoplePrefab: {fileID: 0}
+  people: []
 --- !u!4 &1680867125
 Transform:
   m_ObjectHideFlags: 0
@@ -834,7 +854,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 7883d29a735735c45a139505fcdd45a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

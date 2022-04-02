@@ -20,6 +20,12 @@ public class GameManager : MonoBehaviour
     }
 
     public Camera mainCamera;
+    public SpawnManager spawnManager;
+    public int initialTrees;
+
+    private void Start() {
+        spawnManager.initializeTrees(initialTrees);
+    }
 
 
 }

@@ -20,4 +20,11 @@ public static class Utility
     public static Quaternion getQuaternionAlignment(Vector2 vecToAlign) {
         return Quaternion.LookRotation(Vector3.forward, vecToAlign);
     }
+
+    public static Vector2 getRandomPosOnCircle() {
+        float randFloat = Random.Range(0f, 2 * Mathf.PI);
+        float x = Mathf.Sin(randFloat);
+        float y = Mathf.Cos(randFloat);
+        return new Vector2(x, y);
+    }
 }
