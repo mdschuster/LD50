@@ -21,10 +21,15 @@ public class GameManager : MonoBehaviour
 
     public Camera mainCamera;
     public SpawnManager spawnManager;
+    [Header("Initial Parameters")]
     public int initialTrees;
+    public int initialPeople;
+    public int initialCities;
 
     private void Start() {
         spawnManager.initializeTrees(initialTrees);
+        spawnManager.initializePeople(initialPeople);
+        spawnManager.initializeCities(initialCities);
     }
 
 

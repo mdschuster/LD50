@@ -586,6 +586,8 @@ MonoBehaviour:
   mainCamera: {fileID: 1817065832}
   spawnManager: {fileID: 1680867124}
   initialTrees: 50
+  initialPeople: 10
+  initialCities: 4
 --- !u!1 &1608966779
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,8 +664,13 @@ MonoBehaviour:
   - {fileID: 1828221209, guid: ddfffd72d70de804399f1e2346b607dc, type: 3}
   - {fileID: -1280537474, guid: ddfffd72d70de804399f1e2346b607dc, type: 3}
   - {fileID: -782245239, guid: ddfffd72d70de804399f1e2346b607dc, type: 3}
-  peoplePrefab: {fileID: 0}
-  people: []
+  personPrefab: {fileID: 6137918575608165841, guid: 9d89670e684beff47b316d8ffacb87c2,
+    type: 3}
+  people:
+  - {fileID: -9095717837082945937, guid: 5549e69c0f476e340883294ac10ff344, type: 3}
+  treeLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!4 &1680867125
 Transform:
   m_ObjectHideFlags: 0

@@ -10,8 +10,11 @@ public class SpawnManager : MonoBehaviour
     public Sprite[] cities;
     public GameObject treePrefab;
     public Sprite[] trees;
-    public GameObject peoplePrefab;
+    public GameObject personPrefab;
     public Sprite[] people;
+
+    [Header("Layers")]
+    public LayerMask treeLayer;
 
     private List<GameObject> spawnedCities;
     private List<GameObject> spawnedTrees;
@@ -44,6 +47,18 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    public void initializePeople(int initialPeople) {
+        for (int i = 0; i < initialPeople; i++) {
+            spawnPerson();
+        }
+    }
+
+    public void initializeCities(int initialCities) {
+        for (int i = 0; i < initialCities; i++) {
+            spawnCity();
+        }
+    }
+
     public void spawnCity() {
         int randIndex = Random.Range(0, cities.Length);
         Vector2 position = Utility.getRandomPosOnCircle();
@@ -54,6 +69,32 @@ public class SpawnManager : MonoBehaviour
         spawnedCities.Add(go);
 
         //destroy anything nearby
+        //trees need collider and cities need collider
+        Collider2D[] results=Physics2D.OverlapCircleAll(go.transform.position, 1, treeLayer);
+        foreach (Collider2D c in results) {
+            Tree t = c.gameObject.GetComponent<Tree>();
+            spawnedTrees.Remove(t.gameObject);
+            t.destroyTree();
+        }
+
+    }
+
+    public void spawnCity(Vector2 position) {
+        int randIndex = Random.Range(0, cities.Length);
+        Quaternion rotation = Utility.getQuaternionAlignment(position);
+
+        GameObject go = instantiateOnCircle(cityPrefab, position, rotation);
+        go.GetComponent<SpriteRenderer>().sprite = cities[randIndex];
+        spawnedCities.Add(go);
+
+        //destroy anything nearby
+        //trees need collider and cities need collider
+        Collider2D[] results = Physics2D.OverlapCircleAll(go.transform.position, 1, treeLayer);
+        foreach (Collider2D c in results) {
+            Tree t = c.gameObject.GetComponent<Tree>();
+            spawnedTrees.Remove(t.gameObject);
+            t.destroyTree();
+        }
 
     }
 
@@ -62,18 +103,33 @@ public class SpawnManager : MonoBehaviour
         Vector2 position = Utility.getRandomPosOnCircle();
         Quaternion rotation = Utility.getQuaternionAlignment(position);
 
-        GameObject go = instantiateOnCircle(position, rotation);
+        GameObject go = instantiateOnCircle(treePrefab,position, rotation);
         go.GetComponent<SpriteRenderer>().sprite = trees[randIndex];
         spawnedTrees.Add(go);
     }
 
-    public void destroyTree(GameObject tree) {
-        spawnedTrees.Remove(tree);
-        Destroy(tree);
+
+    public void spawnPerson() {
+        int randIndex = Random.Range(0, people.Length);
+        Vector2 position = Utility.getRandomPosOnCircle();
+        Quaternion rotation = Utility.getQuaternionAlignment(position);
+
+        GameObject go = instantiateOnCircle(personPrefab,position, rotation);
+        go.GetComponent<SpriteRenderer>().sprite = people[randIndex];
+        spawnedPeople.Add(go);
     }
 
-    public GameObject instantiateOnCircle(Vector2 position, Quaternion rotation) {
-        return Instantiate(treePrefab, Utility.getNormVectorFromCenter(position) * WorldManager.Instance().radius, rotation);
+    public void spawnPerson(Vector2 position) {
+        int randIndex = Random.Range(0, people.Length);
+        Quaternion rotation = Utility.getQuaternionAlignment(position);
+
+        GameObject go = instantiateOnCircle(personPrefab, position, rotation);
+        go.GetComponent<SpriteRenderer>().sprite = people[randIndex];
+        spawnedPeople.Add(go);
+    }
+
+    public GameObject instantiateOnCircle(GameObject prefab,Vector2 position, Quaternion rotation) {
+        return Instantiate(prefab, Utility.getNormVectorFromCenter(position) * WorldManager.Instance().radius, rotation);
 
     }
 

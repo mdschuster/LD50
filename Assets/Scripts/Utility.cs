@@ -27,4 +27,11 @@ public static class Utility
         float y = Mathf.Cos(randFloat);
         return new Vector2(x, y);
     }
+
+    public static Vector2 getPositionOnCircle(float angleDeg) {
+        angleDeg *= Mathf.Deg2Rad;
+        float x = Mathf.Sin(angleDeg);
+        float y = Mathf.Cos(angleDeg);
+        return new Vector2(x, y);
+    }
 }
