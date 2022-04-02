@@ -36,9 +36,7 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) {
-            spawnCity();
-        }
+
     }
 
     public void initializeTrees(int initialTrees) {
