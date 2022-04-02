@@ -19,5 +19,7 @@ public class GameManager : MonoBehaviour
         return instance;
     }
 
+    public Camera mainCamera;
+
 
 }
