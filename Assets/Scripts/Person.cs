@@ -19,15 +19,19 @@ public class Person : MonoBehaviour
     private Vector2 position;
     private float currentAngle;
     private float speed;
+    private SpriteRenderer sr;
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
+        sr=GetComponent<SpriteRenderer>();
         //set initial direction
         float randNum = Random.Range(-1f, 1f);
         if (randNum <= 0) {
             moveDirection = 1;
+            sr.flipX = true;
         } else {
             moveDirection = -1;
+            sr.flipX = false;
         }
         //send initial speed
         speed = Random.Range(minSpeed, maxSpeed);
@@ -37,6 +41,7 @@ public class Person : MonoBehaviour
     }
 
     private void Update() {
+
         time += Time.deltaTime;
         if (time >= 2f) {
             float rand = Random.Range(0f, 1f);
@@ -81,6 +86,7 @@ public class Person : MonoBehaviour
         float randNum = Random.Range(0f, 1f);
         if (randNum <= directionChangeProbability) {
             moveDirection *= -1;
+            sr.flipX = !sr.flipX;
         }
     }
 }

@@ -1632,7 +1632,7 @@ MonoBehaviour:
   personPrefab: {fileID: 6137918575608165841, guid: 9d89670e684beff47b316d8ffacb87c2,
     type: 3}
   people:
-  - {fileID: -9095717837082945937, guid: 5549e69c0f476e340883294ac10ff344, type: 3}
+  - {fileID: -1146295619, guid: a98ab4206dec6074f8e03cc1c409fade, type: 3}
   maxPeople: 100
   factoryPrefabs:
   - {fileID: 1332754987994327258, guid: 858cfca309eb09549b1b36c71657ef8d, type: 3}

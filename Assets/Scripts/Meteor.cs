@@ -12,6 +12,8 @@ public class Meteor : MonoBehaviour
     private bool timedDeath;
     private bool playedDeathFX;
     public GameObject deathPFX;
+    public float deathRadius;
+    public LayerMask mask;
 
 
     // Start is called before the first frame update
@@ -32,6 +34,14 @@ public class Meteor : MonoBehaviour
             stopped = true;
             timedDeath = true;
             if (playedDeathFX == false) {
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(this.transform.position, deathRadius, mask);
+                foreach(Collider2D collider in colliders) {
+                    if (collider.tag == "Tree") {
+                        collider.gameObject.GetComponent<Tree>().destroyTree();
+                    } else {
+                        Destroy(collider.gameObject);
+                    }
+                }
                 Instantiate(deathPFX, this.transform.position, Quaternion.identity);
                 playedDeathFX=true;
             }

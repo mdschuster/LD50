@@ -103,6 +103,10 @@ MonoBehaviour:
   maxSpeed: 30
   deathPFX: {fileID: 6620273419093994551, guid: 5fa7aa2ad8827384695e36804433a026,
     type: 3}
+  deathRadius: 2
+  mask:
+    serializedVersion: 2
+    m_Bits: 448
 --- !u!50 &2938896232069055589
 Rigidbody2D:
   serializedVersion: 4
