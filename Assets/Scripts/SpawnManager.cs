@@ -12,6 +12,7 @@ public class SpawnManager : MonoBehaviour
     public Sprite[] trees;
     public GameObject personPrefab;
     public Sprite[] people;
+    public int maxPeople;
     public GameObject[] factoryPrefabs;
 
     [Header("Layers")]
@@ -111,6 +112,9 @@ public class SpawnManager : MonoBehaviour
 
 
     public void spawnPerson() {
+        if (spawnedPeople.Count > maxPeople) {
+            return;
+        }
         int randIndex = Random.Range(0, people.Length);
         Vector2 position = Utility.getRandomPosOnCircle();
         Quaternion rotation = Utility.getQuaternionAlignment(position);
@@ -122,6 +126,9 @@ public class SpawnManager : MonoBehaviour
     }
 
     public void spawnPerson(float angle) {
+        if (spawnedPeople.Count > maxPeople) {
+            return;
+        }
         int randIndex = Random.Range(0, people.Length);
         Vector2 position = Utility.getPositionOnCircle(angle);
         Quaternion rotation = Utility.getQuaternionAlignment(position);
@@ -133,6 +140,9 @@ public class SpawnManager : MonoBehaviour
     }
 
     public void spawnPerson(Vector2 position) {
+        if (spawnedPeople.Count > maxPeople) {
+            return;
+        }
         int randIndex = Random.Range(0, people.Length);
         Quaternion rotation = Utility.getQuaternionAlignment(position);
 
