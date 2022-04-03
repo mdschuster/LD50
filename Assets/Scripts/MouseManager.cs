@@ -44,7 +44,7 @@ public class MouseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (GameManager.Instance().getGameOver()) return;
         checkLightning();
         checkMeteor();
 

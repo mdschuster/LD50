@@ -43,7 +43,7 @@ public class Person : MonoBehaviour
     }
 
     private void Update() {
-
+        if (GameManager.Instance().getGameOver()) return;
         time += Time.deltaTime;
         if (time >= 2f) {
             float rand = Random.Range(0f, 1f);
