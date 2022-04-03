@@ -124,3 +124,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1beb6e48cd3c79b40b768777387bc84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leaves: {fileID: 6011231860024454625, guid: f33f0fdf07f00a2418f6dc097eebac91, type: 3}
+  wood: {fileID: 3170307226179526300, guid: acb475438359328468107b82010ecd0b, type: 3}
