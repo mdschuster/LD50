@@ -2501,6 +2501,8 @@ MonoBehaviour:
   treeLayer:
     serializedVersion: 2
     m_Bits: 64
+  buildSound: {fileID: 3901160485517042061, guid: 89c9c8cb84e61d049a4ce30383c4db99,
+    type: 3}
 --- !u!4 &1680867125
 Transform:
   m_ObjectHideFlags: 0

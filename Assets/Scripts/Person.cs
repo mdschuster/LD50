@@ -9,6 +9,7 @@ public class Person : MonoBehaviour
     public float minSpeed;
     public float directionChangeProbability;
     public GameObject deathFX;
+    public GameObject deathSound;
 
 
     [Header("City Creation Properties")]
@@ -81,6 +82,7 @@ public class Person : MonoBehaviour
 
     public void onDeath() {
         Instantiate(deathFX,this.transform.position,this.transform.rotation);
+        Instantiate(deathSound, this.transform.position, this.transform.rotation);
         GameManager.Instance().spawnManager.getPeopleList().Remove(this.gameObject);
         Destroy(this.gameObject);
     }

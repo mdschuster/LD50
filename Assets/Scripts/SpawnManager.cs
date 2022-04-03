@@ -20,10 +20,14 @@ public class SpawnManager : MonoBehaviour
     [Header("Layers")]
     public LayerMask treeLayer;
 
+    public GameObject buildSound;
+
     private List<GameObject> spawnedCities;
     private List<GameObject> spawnedTrees;
     private List<GameObject> spawnedPeople;
     private List<GameObject> spawnedFactories;
+
+    private bool initialSpawn = true;
 
 
     private void Awake() {
@@ -61,6 +65,7 @@ public class SpawnManager : MonoBehaviour
         for (int i = 0; i < initialCities; i++) {
             spawnCity();
         }
+        initialSpawn = false;
     }
     public void initializeBushes(int initialBushes) {
         for (int i = 0; i < initialBushes; i++) {
@@ -88,6 +93,9 @@ public class SpawnManager : MonoBehaviour
                 Destroy(c.gameObject);
             }
         }
+        if (!initialSpawn) {
+            Instantiate(buildSound, this.transform.position, this.transform.rotation);
+        }
 
     }
 
@@ -111,6 +119,10 @@ public class SpawnManager : MonoBehaviour
             } else {
                 Destroy(c.gameObject);
             }
+        }
+
+        if (!initialSpawn) {
+            Instantiate(buildSound, this.transform.position, this.transform.rotation);
         }
 
     }
@@ -196,6 +208,10 @@ public class SpawnManager : MonoBehaviour
             } else {
                 Destroy(c.gameObject);
             }
+        }
+
+        if (!initialSpawn) {
+            Instantiate(buildSound, this.transform.position, this.transform.rotation);
         }
 
     }
