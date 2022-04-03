@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2220103833013833205}
   - component: {fileID: 1041104650982197445}
   - component: {fileID: -2048162195333103408}
+  - component: {fileID: 6556782946038317686}
   m_Layer: 7
   m_Name: Factories_0
   m_TagString: Factory
@@ -112,6 +113,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.855, y: 1.93}
   m_EdgeRadius: 0
+--- !u!95 &6556782946038317686
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332754987994327258}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aa1df9606b3905744be43df82d4dcd73, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6173175301868647524
 GameObject:
   m_ObjectHideFlags: 0

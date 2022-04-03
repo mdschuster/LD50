@@ -22,6 +22,7 @@ public class Person : MonoBehaviour
     private float currentAngle;
     private float speed;
     private SpriteRenderer sr;
+    private int totalTime;
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -37,6 +38,7 @@ public class Person : MonoBehaviour
         }
         //send initial speed
         speed = Random.Range(minSpeed, maxSpeed);
+        totalTime = 0;
 
 
 
@@ -60,6 +62,10 @@ public class Person : MonoBehaviour
             }
 
             time = 0f;
+            int intTime = Mathf.FloorToInt(totalTime);
+            if (intTime % 10 == 0 && intTime != 0) {
+                citySpawnProbability *= 2f;
+            }
         }
     }
 
@@ -75,6 +81,7 @@ public class Person : MonoBehaviour
 
     public void onDeath() {
         Instantiate(deathFX,this.transform.position,this.transform.rotation);
+        GameManager.Instance().spawnManager.getPeopleList().Remove(this.gameObject);
         Destroy(this.gameObject);
     }
 

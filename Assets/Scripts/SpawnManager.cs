@@ -207,7 +207,7 @@ public class SpawnManager : MonoBehaviour
     }
 
     public List<GameObject> getPeopleList() {
-        return spawnedTrees;
+        return spawnedPeople;
     }
 
     public List<GameObject> getCityList() {
