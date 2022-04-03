@@ -46,6 +46,13 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void Update() {
+        if (spawnManager.getPeopleList().Count == 0 && spawnManager.getCityList().Count == 0) {
+            spawnManager.initializeCities(initialCities);
+            spawnManager.initializePeople(initialPeople);
+        }
+    }
+
     public void updateTreeCount(int amt=1) {
         WorldManager.Instance().mood -= (float)amt / initialTrees;
         if (WorldManager.Instance().mood <= 0.05f) {

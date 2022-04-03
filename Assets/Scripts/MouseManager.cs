@@ -16,6 +16,7 @@ public class MouseManager : MonoBehaviour
     private float lTime;
     private float lNormalizedTime;
     private bool lOnCooldown;
+    public GameObject lightningSound;
 
     public GameObject meteor;
     public float meteorCooldown;
@@ -63,6 +64,7 @@ public class MouseManager : MonoBehaviour
             Vector2 vec = Utility.getNormVectorFromCenter(mousePos) * WorldManager.Instance().radius;
             int randomIndex=Random.Range(0,lightningPrefabs.Length);
             GameObject go = Instantiate(lightningPrefabs[randomIndex], vec, Utility.getQuaternionAlignment(vec));
+            Instantiate(lightningSound, this.transform.position, this.transform.rotation);
 
             lTime = lightningCooldown;
             lightningCooldownSlider.gameObject.SetActive(true);

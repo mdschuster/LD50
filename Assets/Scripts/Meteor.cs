@@ -12,6 +12,7 @@ public class Meteor : MonoBehaviour
     private bool timedDeath;
     private bool playedDeathFX;
     public GameObject deathPFX;
+    public GameObject explosionSound;
     public float deathRadius;
     public LayerMask mask;
 
@@ -40,12 +41,18 @@ public class Meteor : MonoBehaviour
                         collider.gameObject.GetComponent<Tree>().destroyTree();
                     } else if (collider.tag == "Person") {
                         collider.gameObject.GetComponent<Person>().onDeath();
-                    } else { 
+                    } else if(collider.tag=="City"){
+                        GameManager.Instance().spawnManager.getCityList().Remove(collider.gameObject);
+                        Destroy(collider.gameObject);
+                    } else {
                         Destroy(collider.gameObject);
                     }
                 }
+                this.GetComponent<AudioSource>().Stop();
                 Instantiate(deathPFX, this.transform.position, Quaternion.identity);
-                playedDeathFX=true;
+                Instantiate(explosionSound, this.transform.position, Quaternion.identity);
+                playedDeathFX =true;
+
             }
         }
         if (timedDeath) {
