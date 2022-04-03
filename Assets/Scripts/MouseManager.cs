@@ -80,7 +80,8 @@ public class MouseManager : MonoBehaviour
 
             Vector2 mousePos = GameManager.Instance().mainCamera.ScreenToWorldPoint(Input.mousePosition);
             Vector2 vec = Utility.getNormVectorFromCenter(mousePos) * WorldManager.Instance().radius;
-            GameObject go = Instantiate(meteor, vec, Utility.getQuaternionAlignment(vec));
+            GameObject go = Instantiate(meteor, vec*3f, Utility.getQuaternionAlignment(vec));
+            go.GetComponent<Meteor>().setTarget(vec);
 
             mTime = meteorCooldown;
             meteorCooldownSlider.gameObject.SetActive(true);
