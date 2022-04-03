@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 3
   minSpeed: 7
-  directionChangeProbability: 0.0025
+  directionChangeProbability: 0.00125
   deathFX: {fileID: 5009718960317547402, guid: f4780ea2cbf63f74689e46963e7704de, type: 3}
   citySpawnProbability: 0.1
   cityMask:

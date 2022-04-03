@@ -63,8 +63,8 @@ public class Person : MonoBehaviour
 
             time = 0f;
             int intTime = Mathf.FloorToInt(totalTime);
-            if (intTime % 10 == 0 && intTime != 0) {
-                citySpawnProbability *= 2f;
+            if (intTime % 6 == 0 && intTime != 0) {
+                citySpawnProbability *= 3f;
             }
         }
     }
