@@ -8,6 +8,7 @@ TagManager:
   - City
   - Person
   - Factory
+  - Bush
   layers:
   - Default
   - TransparentFX

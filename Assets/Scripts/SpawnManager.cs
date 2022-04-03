@@ -14,6 +14,8 @@ public class SpawnManager : MonoBehaviour
     public Sprite[] people;
     public int maxPeople;
     public GameObject[] factoryPrefabs;
+    public GameObject bushPrefab;
+    public Sprite[] bushSprites;
 
     [Header("Layers")]
     public LayerMask treeLayer;
@@ -60,6 +62,11 @@ public class SpawnManager : MonoBehaviour
             spawnCity();
         }
     }
+    public void initializeBushes(int initialBushes) {
+        for (int i = 0; i < initialBushes; i++) {
+            spawnBush();
+        }
+    }
 
     public void spawnCity() {
         int randIndex = Random.Range(0, cities.Length);
@@ -74,8 +81,12 @@ public class SpawnManager : MonoBehaviour
         //trees need collider and cities need collider
         Collider2D[] results=Physics2D.OverlapCircleAll(go.transform.position, 1, treeLayer);
         foreach (Collider2D c in results) {
-            Tree t = c.gameObject.GetComponent<Tree>();
-            t.destroyTree();
+            if (c.tag == "Tree") {
+                Tree t = c.gameObject.GetComponent<Tree>();
+                t.destroyTree();
+            } else {
+                Destroy(c.gameObject);
+            }
         }
 
     }
@@ -94,8 +105,12 @@ public class SpawnManager : MonoBehaviour
         //trees need collider and cities need collider
         Collider2D[] results = Physics2D.OverlapCircleAll(go.transform.position, 1, treeLayer);
         foreach (Collider2D c in results) {
-            Tree t = c.gameObject.GetComponent<Tree>();
-            t.destroyTree();
+            if (c.tag == "Tree") {
+                Tree t = c.gameObject.GetComponent<Tree>();
+                t.destroyTree();
+            } else {
+                Destroy(c.gameObject);
+            }
         }
 
     }
@@ -108,6 +123,15 @@ public class SpawnManager : MonoBehaviour
         GameObject go = instantiateOnCircle(treePrefab,position, rotation);
         go.GetComponent<SpriteRenderer>().sprite = trees[randIndex];
         spawnedTrees.Add(go);
+    }
+
+    public void spawnBush() {
+        int randIndex = Random.Range(0, bushSprites.Length);
+        Vector2 position = Utility.getRandomPosOnCircle();
+        Quaternion rotation = Utility.getQuaternionAlignment(position);
+
+        GameObject go = instantiateOnCircle(bushPrefab, position, rotation);
+        go.GetComponent<SpriteRenderer>().sprite = bushSprites[randIndex];
     }
 
 
@@ -166,8 +190,12 @@ public class SpawnManager : MonoBehaviour
         //trees need collider and cities need collider
         Collider2D[] results = Physics2D.OverlapCircleAll(go.transform.position, 1, treeLayer);
         foreach (Collider2D c in results) {
-            Tree t = c.gameObject.GetComponent<Tree>();
-            t.destroyTree();
+            if (c.tag == "Tree") {
+                Tree t = c.gameObject.GetComponent<Tree>();
+                t.destroyTree();
+            } else {
+                Destroy(c.gameObject);
+            }
         }
 
     }

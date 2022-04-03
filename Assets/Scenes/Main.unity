@@ -1417,6 +1417,7 @@ MonoBehaviour:
   initialTrees: 50
   initialPeople: 4
   initialCities: 4
+  initialBushes: 200
 --- !u!1 &1608966779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,6 +1640,12 @@ MonoBehaviour:
   factoryPrefabs:
   - {fileID: 1332754987994327258, guid: 858cfca309eb09549b1b36c71657ef8d, type: 3}
   - {fileID: 4447907151003347860, guid: 8d15f9acb92ead14b8057d84dcacab1f, type: 3}
+  bushPrefab: {fileID: 4773838123185425196, guid: 42a758b0641bd6f42b61d72d301d2909,
+    type: 3}
+  bushSprites:
+  - {fileID: 542391039, guid: 674eaaa1b8a18e045a28a09ae0d54520, type: 3}
+  - {fileID: -131354660, guid: 674eaaa1b8a18e045a28a09ae0d54520, type: 3}
+  - {fileID: 143887447, guid: 674eaaa1b8a18e045a28a09ae0d54520, type: 3}
   treeLayer:
     serializedVersion: 2
     m_Bits: 64

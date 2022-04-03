@@ -25,11 +25,13 @@ public class GameManager : MonoBehaviour
     public int initialTrees;
     public int initialPeople;
     public int initialCities;
+    public int initialBushes;
 
     private void Start() {
         spawnManager.initializeTrees(initialTrees);
         spawnManager.initializePeople(initialPeople);
         spawnManager.initializeCities(initialCities);
+        spawnManager.initializeBushes(initialBushes);
 
         //mood is directly linked to the number of trees
         int currentTrees=initialTrees= spawnManager.getTreeList().Count;
