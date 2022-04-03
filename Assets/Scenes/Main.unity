@@ -1309,8 +1309,10 @@ MonoBehaviour:
   innerGizmo: {fileID: 0}
   outerGizmo: {fileID: 0}
   rest: {fileID: 0}
-  lightning: {fileID: 5954852727523374622, guid: 4a228e3855e191548ae40f3bb58436f6,
-    type: 3}
+  lightningPrefabs:
+  - {fileID: 3233439087072704081, guid: fba1fc3d6b44e414490761d4713b3ada, type: 3}
+  - {fileID: 5954852727523374622, guid: 4a228e3855e191548ae40f3bb58436f6, type: 3}
+  - {fileID: 1581112840685492570, guid: e37d447105341a248bef042003d04f14, type: 3}
   lightningCooldown: 2
   lightningCooldownSlider: {fileID: 190126253}
   meteor: {fileID: 5954852727523374622, guid: 4a228e3855e191548ae40f3bb58436f6, type: 3}

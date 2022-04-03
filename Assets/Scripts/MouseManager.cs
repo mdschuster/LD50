@@ -10,7 +10,7 @@ public class MouseManager : MonoBehaviour
 
     [Header("Mouse Weapons")]
     public GameObject rest;
-    public GameObject lightning;
+    public GameObject[] lightningPrefabs;
     public float lightningCooldown;
     public Slider lightningCooldownSlider;
     private float lTime;
@@ -61,7 +61,8 @@ public class MouseManager : MonoBehaviour
 
             Vector2 mousePos = GameManager.Instance().mainCamera.ScreenToWorldPoint(Input.mousePosition);
             Vector2 vec = Utility.getNormVectorFromCenter(mousePos) * WorldManager.Instance().radius;
-            GameObject go = Instantiate(lightning, vec, Utility.getQuaternionAlignment(vec));
+            int randomIndex=Random.Range(0,lightningPrefabs.Length);
+            GameObject go = Instantiate(lightningPrefabs[randomIndex], vec, Utility.getQuaternionAlignment(vec));
 
             lTime = lightningCooldown;
             lightningCooldownSlider.gameObject.SetActive(true);
