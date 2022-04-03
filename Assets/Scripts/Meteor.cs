@@ -10,6 +10,8 @@ public class Meteor : MonoBehaviour
     public float maxSpeed;
     private bool stopped;
     private bool timedDeath;
+    private bool playedDeathFX;
+    public GameObject deathPFX;
 
 
     // Start is called before the first frame update
@@ -18,6 +20,7 @@ public class Meteor : MonoBehaviour
         rb=GetComponent<Rigidbody2D>();
         stopped = false;
         timedDeath = false;
+        playedDeathFX = false;
 
     }
 
@@ -28,6 +31,10 @@ public class Meteor : MonoBehaviour
             rb.velocity = Vector2.zero;
             stopped = true;
             timedDeath = true;
+            if (playedDeathFX == false) {
+                Instantiate(deathPFX, this.transform.position, Quaternion.identity);
+                playedDeathFX=true;
+            }
         }
         if (timedDeath) {
             Destroy(this.gameObject, 2f);
