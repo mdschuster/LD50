@@ -1316,7 +1316,7 @@ MonoBehaviour:
   lightningCooldown: 2
   lightningCooldownSlider: {fileID: 190126253}
   meteor: {fileID: 8429833293249143113, guid: c78a2422d1a62a24abc8eed9d401cbfa, type: 3}
-  meteorCooldown: 1
+  meteorCooldown: 15
   meteorCooldownSlider: {fileID: 149006828}
 --- !u!1 &1477518298
 GameObject:
@@ -1414,8 +1414,8 @@ MonoBehaviour:
   mainCamera: {fileID: 1817065832}
   spawnManager: {fileID: 1680867124}
   initialTrees: 50
-  initialPeople: 3
-  initialCities: 3
+  initialPeople: 4
+  initialCities: 4
 --- !u!1 &1608966779
 GameObject:
   m_ObjectHideFlags: 0
