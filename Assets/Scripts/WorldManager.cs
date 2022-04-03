@@ -27,6 +27,8 @@ public class WorldManager : MonoBehaviour
     [Range(0f,1f)]
     public float mood; 
     public Gradient moodColor;
+    public SpriteRenderer faceRenderer;
+    public Sprite[] faces;
 
 
     private void Update() {
@@ -36,6 +38,15 @@ public class WorldManager : MonoBehaviour
     public void updateWorldColor() {
         Color currentColor = moodColor.Evaluate(mood);
         World.color = currentColor;
+        if (mood >= 0.66f) {
+            faceRenderer.sprite = faces[0];
+        } else if (mood >= 0.33f) {
+            faceRenderer.sprite = faces[1];
+        } else if (mood >= 0.05f) {
+            faceRenderer.sprite = faces[2];
+        } else{
+            faceRenderer.sprite = faces[3];
+        }
     }
 
 

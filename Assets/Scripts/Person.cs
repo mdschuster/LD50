@@ -8,6 +8,8 @@ public class Person : MonoBehaviour
     public float maxSpeed;
     public float minSpeed;
     public float directionChangeProbability;
+    public GameObject deathFX;
+
 
     [Header("City Creation Properties")]
     public float citySpawnProbability;
@@ -71,7 +73,10 @@ public class Person : MonoBehaviour
         this.transform.rotation = Utility.getQuaternionAlignment(rb.position);
     }
 
-
+    public void onDeath() {
+        Instantiate(deathFX,this.transform.position,this.transform.rotation);
+        Destroy(this.gameObject);
+    }
 
 
     public void setupRandomAngle() {

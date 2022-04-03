@@ -38,7 +38,9 @@ public class Meteor : MonoBehaviour
                 foreach(Collider2D collider in colliders) {
                     if (collider.tag == "Tree") {
                         collider.gameObject.GetComponent<Tree>().destroyTree();
-                    } else {
+                    } else if (collider.tag == "Person") {
+                        collider.gameObject.GetComponent<Person>().onDeath();
+                    } else { 
                         Destroy(collider.gameObject);
                     }
                 }

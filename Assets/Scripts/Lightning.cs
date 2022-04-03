@@ -16,7 +16,8 @@ public class Lightning : MonoBehaviour
         foreach(Collider2D collider in colliders) {
             if (collider.tag == "Tree") {
                 collider.gameObject.GetComponent<Tree>().destroyTree();
-            } else {
+            } else if (collider.tag == "Person") {
+                collider.gameObject.GetComponent<Person>().onDeath();
                 GameManager.Instance().spawnManager.getPeopleList().Remove(collider.gameObject);
             }
             Destroy(collider.gameObject);
@@ -34,9 +35,9 @@ public class Lightning : MonoBehaviour
         
     }
 
-    private void OnDrawGizmos() {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(this.transform.position, damageRadius);
+    //private void OnDrawGizmos() {
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireSphere(this.transform.position, damageRadius);
 
-    }
+    //}
 }

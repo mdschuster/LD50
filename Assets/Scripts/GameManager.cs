@@ -46,12 +46,14 @@ public class GameManager : MonoBehaviour
             WorldManager.Instance().mood = 0f;
             WorldManager.Instance().updateWorldColor();
             gameOver();
+            Time.timeScale = 0.1f;
         }
         WorldManager.Instance().updateWorldColor();
     }
 
     private void gameOver() {
-
+        //show game over dialog
+        //return to menu
     }
 
 
