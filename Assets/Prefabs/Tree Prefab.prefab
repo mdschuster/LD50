@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3207553168217204328}
   - component: {fileID: -132412059987292107}
   - component: {fileID: 7905960909177213858}
+  - component: {fileID: -7987724755513380458}
   m_Layer: 6
   m_Name: Tree Prefab
   m_TagString: Tree
@@ -126,3 +127,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leaves: {fileID: 6011231860024454625, guid: f33f0fdf07f00a2418f6dc097eebac91, type: 3}
   wood: {fileID: 3170307226179526300, guid: acb475438359328468107b82010ecd0b, type: 3}
+--- !u!95 &-7987724755513380458
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6649971584334003786}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 619276fa42687774ea0746a0e15b2570, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
