@@ -1675,6 +1675,9 @@ MonoBehaviour:
     type: 3}
   people:
   - {fileID: -9095717837082945937, guid: 5549e69c0f476e340883294ac10ff344, type: 3}
+  factoryPrefabs:
+  - {fileID: 1332754987994327258, guid: 858cfca309eb09549b1b36c71657ef8d, type: 3}
+  - {fileID: 4447907151003347860, guid: 8d15f9acb92ead14b8057d84dcacab1f, type: 3}
   treeLayer:
     serializedVersion: 2
     m_Bits: 64

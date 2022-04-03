@@ -43,8 +43,12 @@ public class Person : MonoBehaviour
             if (rand <= citySpawnProbability) {
                 Collider2D[] colliders = Physics2D.OverlapCircleAll(this.transform.position, 0.2f, cityMask);
                 if (colliders.Length == 0) {
-                    //spawn city
-                    GameManager.Instance().spawnManager.spawnCity(this.transform.position);
+                    //spawn city or factory
+                    if (rand <= citySpawnProbability/3f) {
+                        GameManager.Instance().spawnManager.spawnFactory(this.transform.position);
+                    } else {
+                        GameManager.Instance().spawnManager.spawnCity(this.transform.position);
+                    }
                 }
             }
 

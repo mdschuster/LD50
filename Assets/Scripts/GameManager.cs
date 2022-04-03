@@ -39,14 +39,10 @@ public class GameManager : MonoBehaviour
 
     }
 
-
-    public void Update() {
-        if (currentTrees != spawnManager.trees.Length) {
-            int removedTrees = currentTrees - spawnManager.getTreeList().Count;
-            WorldManager.Instance().mood -= (float)removedTrees / initialTrees;
-            WorldManager.Instance().updateWorldColor();
-            currentTrees = spawnManager.getTreeList().Count;
-        }
+    public void updateTreeCount(int amt=1) {
+        WorldManager.Instance().mood -= (float)amt / initialTrees;
+        if (WorldManager.Instance().mood > 0.1f) WorldManager.Instance().mood = 0f;
+        WorldManager.Instance().updateWorldColor();
     }
 
 

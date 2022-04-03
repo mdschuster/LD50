@@ -12,6 +12,7 @@ public class Tree : MonoBehaviour
     }
 
     public void destroyTree() {
+        GameManager.Instance().updateTreeCount();
         spawnManager.getTreeList().Remove(this.gameObject);
         Destroy(this.gameObject);
     }

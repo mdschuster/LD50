@@ -12,6 +12,7 @@ public class SpawnManager : MonoBehaviour
     public Sprite[] trees;
     public GameObject personPrefab;
     public Sprite[] people;
+    public GameObject[] factoryPrefabs;
 
     [Header("Layers")]
     public LayerMask treeLayer;
@@ -19,12 +20,14 @@ public class SpawnManager : MonoBehaviour
     private List<GameObject> spawnedCities;
     private List<GameObject> spawnedTrees;
     private List<GameObject> spawnedPeople;
+    private List<GameObject> spawnedFactories;
 
 
     private void Awake() {
         spawnedCities = new List<GameObject>();
         spawnedTrees = new List<GameObject>();
         spawnedPeople = new List<GameObject>();
+        spawnedFactories = new List<GameObject>();
     }
 
     // Start is called before the first frame update
@@ -138,6 +141,27 @@ public class SpawnManager : MonoBehaviour
         go.GetComponent<Person>().setupAngle(Utility.getAngleFromVector(position));
         spawnedPeople.Add(go);
     }
+
+
+    public void spawnFactory(Vector2 position) {
+        int randIndex = Random.Range(0, factoryPrefabs.Length);
+        //position = Utility.getNormVectorFromCenter(position)*WorldManager.Instance().radius;
+        Quaternion rotation = Utility.getQuaternionAlignment(position);
+
+
+        GameObject go = instantiateOnCircle(factoryPrefabs[randIndex], position, rotation);
+        spawnedFactories.Add(go);
+
+        //destroy anything nearby
+        //trees need collider and cities need collider
+        Collider2D[] results = Physics2D.OverlapCircleAll(go.transform.position, 1, treeLayer);
+        foreach (Collider2D c in results) {
+            Tree t = c.gameObject.GetComponent<Tree>();
+            t.destroyTree();
+        }
+
+    }
+
 
     public GameObject instantiateOnCircle(GameObject prefab,Vector2 position, Quaternion rotation) {
         return Instantiate(prefab, Utility.getNormVectorFromCenter(position) * WorldManager.Instance().radius, rotation);
